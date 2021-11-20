@@ -13,10 +13,10 @@ class TransferData:
         for root,dirs,files in os.walk(file_from):
 
             for filename in files:
-                local_path = os.path.jion(root,filename)
+                local_path = os.path.join(root,filename)
 
                 relative_path =os.path.relpath(local_path,file_from)
-                dropbox_path = os.path.jion(file_to,relative_path)
+                dropbox_path = os.path.join(file_to,relative_path)
 
                 with open(local_path, 'rb') as f:
                     dbx.files_upload(f.read(), dropbox_path, mode=WriteMode('overwrite'))
